@@ -1,0 +1,10 @@
+.main-menu {
+  width: 100%;
+}
+
+.main-menu__wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

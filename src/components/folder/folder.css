@@ -1,0 +1,11 @@
+.folder {
+  width: max-content;
+  height: max-content;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 2px solid #000;
+}
+
+.folder p {
+  font-size: 1.7rem;
+}
