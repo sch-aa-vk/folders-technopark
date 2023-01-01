@@ -1,10 +1,15 @@
-import React from 'react';
 import './folder.css';
 
-export function Folder(folder) {
+import { useNavigate } from 'react-router-dom';
+
+export function Folder(props) {
+
+  const item = props.folder;
+  const navigate = useNavigate();
+
   return(
-    <div className='folder'>
-      <p>{folder.name}</p>
+    <div className='folder' onDoubleClick={() => navigate(`/${item.id}`)}>
+      <p>{item.name}</p>
     </div>
   )
 }

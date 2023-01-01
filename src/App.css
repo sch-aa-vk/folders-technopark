@@ -7,8 +7,3 @@
 html {
   font-size: 15px;
 }
-
-.body {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-}

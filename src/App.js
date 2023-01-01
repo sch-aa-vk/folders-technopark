@@ -1,21 +1,19 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store/store';
-import { Header } from './components/header/Header';
-import { MainMenu } from './components/mainMenu/MainMenu';
-import { Sidebar } from './components/sideMenu/Sidebar';
+import { Home } from './pages/Home/Home';
+import { Route, Routes } from 'react-router-dom';
+import { Folder } from './pages/Folder/Folder';
 
-export function App() {
 
-  const parent = 0;
+export const App = () => {
 
   return (
     <Provider store={store}>
-      <Header/>
-      <div className='body'>
-        <Sidebar parent={parent}/>
-        <MainMenu parent={parent}/>
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path="/:folderId" element={<Folder/>}/>
+      </Routes>
     </Provider>
   );
 }

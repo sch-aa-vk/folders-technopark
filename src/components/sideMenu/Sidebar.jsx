@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ModalWindow } from '../modalWindow/ModalWindow';
 import './sidebar.css';
 
