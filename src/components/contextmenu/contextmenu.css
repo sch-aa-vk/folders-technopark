@@ -1,0 +1,24 @@
+.contextmenu {
+  position: fixed;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  background: #fff;
+  box-shadow: 0 3px 8px #000;
+}
+
+.contextmenu ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5rem;
+}
+
+.contextmenu ul li {
+  border-bottom: 1px solid #000;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.contextmenu ul li:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -9,7 +9,7 @@ export function Folder(props) {
 
   return(
     <div className='folder' onDoubleClick={() => navigate(`/${item.id}`)}>
-      <p>{item.name}</p>
+      <p className='folder-item'>{item.name}</p>
     </div>
   )
 }

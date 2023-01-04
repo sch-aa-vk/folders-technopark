@@ -3,6 +3,8 @@ import './mainMenu.css';
 import { useSelector } from 'react-redux';
 import { Folder } from '../folder/Folder';
 import { createFolder } from '../../store/slices/store.slice';
+import { useState } from 'react';
+import { Contextmenu } from '../contextmenu/Contextmenu';
 
 export function MainMenu(props) {
 
@@ -10,8 +12,29 @@ export function MainMenu(props) {
   const items = useSelector(createFolder);
   const arr = findParents(items.payload.todos, parentId).reverse();
 
+  const [showContextmenu, setShowContextmenu] = useState(false);
+  const [isFolder, setIsFolder] = useState(false);
+  const [pageX, setPageX] = useState(0);
+  const [pageY, setPageY] = useState(0);
+
+  function handleContextMenu(e) {
+    e.preventDefault();
+    setPageX(e.pageX > 1350 ? 1350 : e.pageX);
+    setPageY(e.pageY > 700 ? 700 : e.pageY);
+    if (e.target.className === 'folder' || e.target.className === 'folder-item') setIsFolder(true);
+    if (!showContextmenu) setShowContextmenu(true);
+    else {
+      setShowContextmenu(false);
+      setIsFolder(false);
+    }
+  }
+
+  function handleContextMenuClick(e) {
+    setShowContextmenu(false);
+  }
+
   return (
-    <div className='main-menu'>
+    <div className='main-menu' onContextMenu={(e) => handleContextMenu(e)} onClick={(e) => handleContextMenuClick(e)}>
       <div className='main-menu__wrapper'>
         <div className='breadcrumps'>
           {arr.map((item) => {
@@ -25,6 +48,7 @@ export function MainMenu(props) {
           })}
         </div>
       </div>
+      {showContextmenu ? <Contextmenu pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
     </div>
   )
 }
