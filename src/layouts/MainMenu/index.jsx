@@ -1,12 +1,12 @@
-import './mainMenu.css';
+import './style.scss';
 
 import { useSelector } from 'react-redux';
-import { Folder } from '../folder/Folder';
+import { Folder } from '../../components/Folder';
 import { createFolder } from '../../store/slices/store.slice';
 import { useState } from 'react';
-import { Contextmenu } from '../contextmenu/Contextmenu';
+import { ContextMenu } from '../ContextMenu';
 
-export function MainMenu(props) {
+export const MainMenu = (props) => {
 
   const parentId = props.parent | 0;
   const items = useSelector(createFolder);
@@ -22,10 +22,10 @@ export function MainMenu(props) {
     setPageX(e.pageX > 1350 ? 1350 : e.pageX);
     setPageY(e.pageY > 700 ? 700 : e.pageY);
     if (e.target.className === 'folder' || e.target.className === 'folder-item') setIsFolder(true);
+    else setIsFolder(false);
     if (!showContextmenu) setShowContextmenu(true);
     else {
       setShowContextmenu(false);
-      setIsFolder(false);
     }
   }
 
@@ -48,7 +48,7 @@ export function MainMenu(props) {
           })}
         </div>
       </div>
-      {showContextmenu ? <Contextmenu pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
+      {showContextmenu ? <ContextMenu pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
     </div>
   )
 }

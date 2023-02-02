@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ModalWindow } from '../modalWindow/ModalWindow';
-import './sidebar.css';
+import openModalWindow from '../../utils';
+import { ModalWindow } from '../ModalWindow';
+import './style.scss';
 
-export function Sidebar(props) {
+export const Sidebar = (props) => {
 
   const [showModal, setShowModal] = useState(false);
 
