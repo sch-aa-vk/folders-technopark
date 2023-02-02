@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const todosSlice = createSlice({
   name: 'todos',
-  initialState: (sessionStorage['redux-store-folders']) ? JSON.parse(sessionStorage['redux-store-folders']).todos : [],
+  initialState: (sessionStorage['redux-store-folders']) ? JSON.parse(sessionStorage['redux-store-folders']).todos : [{id: 1, name: "rootDir", parentId: 0}],
   reducers: {
     createFolder(state, action) {
       state.push({

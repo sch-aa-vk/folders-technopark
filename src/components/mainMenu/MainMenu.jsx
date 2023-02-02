@@ -8,7 +8,7 @@ import { Contextmenu } from '../contextmenu/Contextmenu';
 
 export function MainMenu(props) {
 
-  const parentId = props.parent;
+  const parentId = props.parent | 0;
   const items = useSelector(createFolder);
   const arr = findParents(items.payload.todos, parentId).reverse();
 
