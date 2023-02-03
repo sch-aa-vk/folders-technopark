@@ -4,18 +4,19 @@ const foldersSlice = createSlice({
   name: 'folders',
   initialState: (sessionStorage['redux-store-folders']) ? JSON.parse(sessionStorage['redux-store-folders']).folders : [{id: 1, name: "rootDir", parentId: null}],
   reducers: {
-    createFolder(state, action) {
-      state.push({
-        id: action.payload.id,
-        name: action.payload.name,
-        parentId: action.payload.parentId
-      })
+    createFolder: (state, action) => {
+      state.push(action.payload);
     },
-    deleteFolder(state, action) {
+    renameFolder: (state, action) => {
+      state.map((item) => 
+        item.id === action.payload.id ? item.name = action.payload.name : item
+      )
+    },
+    deleteFolder: (state, action) => {
       return state.filter(product => product.id !== action.payload.id);
     }
   }
 })
 
-export const { createFolder, deleteFolder } = foldersSlice.actions
+export const { createFolder, deleteFolder, renameFolder } = foldersSlice.actions
 export default foldersSlice.reducer

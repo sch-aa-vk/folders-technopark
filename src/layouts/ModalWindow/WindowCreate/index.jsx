@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import './style.scss';
+import '../style.scss';
 
-import { createFolder } from '../../store/slices/store.slice';
-import store from '../../store/store';
+import { createFolder } from '../../../store/slices/store.slice';
+import store from '../../../store/store';
 
-export const ModalWindow = ({showModal, setShowModal, parent}) => {
+export const ModalWindowCreate = ({ setShowModal, parent}) => {
 
   const [value, setValue] = useState('');
 

@@ -1,21 +1,25 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ModalWindow } from '../ModalWindow';
+import { ModalWindowCreate } from '../ModalWindow/WindowCreate';
+import { ModalWindowRename } from '../ModalWindow/WindowRename';
 import './style.scss';
 
 export const Sidebar = () => {
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModalCreate, setShowModalCreate] = useState(false);
+  const [showModalRename, setShowModalRename] = useState(false);
   const parentId = +window.location.pathname.substring(1) || null;
 
   return (
     <div className='sidebar'>
       <div className='sidebar__wrapper'>
-        <button className='button' onClick={() => setShowModal(true)}>Create</button>
+        <button className='button' onClick={() => setShowModalCreate(true)}>Create</button>
         <Link to='/'><button className='button'>My Folder</button></Link>
         <Link to='/cart'><button className='button'>Cart</button></Link>
+        <button className='button transparent' onClick={() => setShowModalRename(true)}>Rename</button>
       </div>
-      {showModal ? <ModalWindow showModal={showModal} setShowModal={setShowModal} parent={parentId} /> : <></>}
+      {showModalCreate ? <ModalWindowCreate setShowModal={setShowModalCreate} parent={parentId} /> : <></>}
+      {showModalRename ? <ModalWindowRename setShowModal={setShowModalRename} /> : <></>}
     </div>
   )
 }

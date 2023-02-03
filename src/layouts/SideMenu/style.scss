@@ -19,4 +19,9 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+
+  &.transparent {
+    opacity: 0;
+    cursor: auto;
+  }
 }

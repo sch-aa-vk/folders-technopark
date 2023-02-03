@@ -1,10 +1,9 @@
 import './style.scss';
 
 import { useParams } from 'react-router-dom';
-import { MainMenu } from '../../layouts/MainMenu';
-import { Sidebar } from '../../layouts/SideMenu';
 import { useState } from 'react';
 import { ContextMenuMain } from '../../layouts/ContextMenu/ContextMenuMain';
+import { PageContent } from '../../layouts/PageContent';
 
 export const FolderPage = () => {
 
@@ -38,7 +37,7 @@ export const FolderPage = () => {
 
   return (
     <div className='body' onContextMenu={(e) => handleContextMenu(e)} onClick={(e) => handleContextMenuClick(e)}>
-      <MainMenu parent={parent}/>
+      <PageContent parent={parent}/>
       {showContextmenu ? <ContextMenuMain pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
     </div>
   )

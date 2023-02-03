@@ -5,7 +5,7 @@ import { Folder } from '../../components/Folder';
 import { createFolder } from '../../store/slices/store.slice';
 import { Breadcrumps } from '../../components/Breadcrumps';
 
-export const MainMenu = (props) => {
+export const PageContent = (props) => {
 
   const parentId = props.parent || null;
   const items = useSelector(createFolder);
