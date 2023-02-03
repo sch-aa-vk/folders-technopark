@@ -33,6 +33,7 @@ export const Home = () => {
 
   return (
     <div className='body' onContextMenu={(e) => handleContextMenu(e)} onClick={(e) => handleContextMenuClick(e)}>
+      <h2>My folders</h2>
       <PageContent parent={parent}/>
       {showContextmenu ? <ContextMenuMain pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
     </div>

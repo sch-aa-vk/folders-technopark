@@ -12,7 +12,14 @@ export const ContextMenuMain = ({pageX, pageY, isFolder}) => {
     <nav className='contextmenu' style={{top: `${pageY}px`, left: `${pageX}px`}}>
       <ul>
         {!isFolder ? 
-          <li onClick={() => document.querySelector('.sidebar__wrapper').querySelector('.button').click()}>Create</li> :
+          <>
+            <li onClick={() => {
+              document.querySelector('.sidebar__wrapper').querySelector('.button').click();
+            }}>Create</li>
+            <li onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+            }}>Copy page Link</li>
+          </> :
           <>
             <li onClick={() => {
               dispatch(addToCart(JSON.parse(isFolder)));

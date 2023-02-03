@@ -1,0 +1,7 @@
+.body {
+  & > h2 {
+    padding: 2rem;
+    padding-bottom: 0;
+    font-size: 2rem;
+  }
+}
