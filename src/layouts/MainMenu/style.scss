@@ -4,16 +4,12 @@
 }
 
 .main-menu__wrapper {
+  width: 100%;
   padding: 2rem;
   display: flex;
   flex-flow: column wrap;
   gap: 2rem;
-}
-
-.breadcrumps > span {
-  font-size: 1.5rem;
-  color: blue;
-  margin-right: 5px;
+  box-sizing: border-box;
 }
 
 .folders__container {

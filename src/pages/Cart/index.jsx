@@ -1,15 +1,14 @@
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Folder } from '../../components/Folder';
+import { ContextMenuCart } from '../../layouts/ContextMenu/ContextMenuCart';
+import { addToCart } from '../../store/slices/cart.slice';
+
 import './style.scss';
 
-import { useParams } from 'react-router-dom';
-import { MainMenu } from '../../layouts/MainMenu';
-import { Sidebar } from '../../layouts/SideMenu';
-import { useState } from 'react';
-import { ContextMenuMain } from '../../layouts/ContextMenu/ContextMenuMain';
+export const Cart = () => {
 
-export const FolderPage = () => {
-
-  const { folderId } = useParams() || 0;
-  const parent = +folderId;
+  const items = useSelector(addToCart);
 
   const [showContextmenu, setShowContextmenu] = useState(false);
   const [isFolder, setIsFolder] = useState(null);
@@ -37,9 +36,13 @@ export const FolderPage = () => {
   }
 
   return (
-    <div className='body' onContextMenu={(e) => handleContextMenu(e)} onClick={(e) => handleContextMenuClick(e)}>
-      <MainMenu parent={parent}/>
-      {showContextmenu ? <ContextMenuMain pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
-    </div>
+    <>
+      <div className='cart' onContextMenu={(e) => handleContextMenu(e)} onClick={(e) => handleContextMenuClick(e)}>
+        {items.payload.cart.map((item) => {
+          return <Folder key={item.id} folder={item}/>
+        })}
+        {showContextmenu ? <ContextMenuCart pageX={pageX} pageY={pageY} isFolder={isFolder} /> : <></>}
+      </div>
+    </>
   )
 }

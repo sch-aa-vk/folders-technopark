@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import todosReducer from './slices/store.slice';
+import cart from './slices/cart.slice';
+import folders from './slices/store.slice';
 
 export const store = configureStore({
   reducer: {
-    todos: todosReducer
+    folders,
+    cart
   }
 })
 

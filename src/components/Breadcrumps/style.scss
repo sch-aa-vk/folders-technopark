@@ -1,0 +1,14 @@
+.breadcrumps {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+
+  & > span {
+    margin-right: 3px;
+  }
+}
+
+.breadcrumps_link {
+  color: blue;
+  text-decoration: none;
+}

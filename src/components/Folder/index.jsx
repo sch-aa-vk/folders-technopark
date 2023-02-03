@@ -2,14 +2,12 @@ import './style.scss';
 
 import { useNavigate } from 'react-router-dom';
 
-export function Folder(props) {
-
-  const item = props.folder;
+export function Folder({ folder }) {
   const navigate = useNavigate();
 
   return(
-    <div className='folder' onDoubleClick={() => navigate(`/${item.id}`)}>
-      <p className='folder-item'>{item.name}</p>
+    <div className='folder' onDoubleClick={() => navigate(`/${folder.id}`)}>
+      <p className='folder-item' data-folder={JSON.stringify(folder)}>{folder.name}</p>
     </div>
   )
 }

@@ -30,7 +30,7 @@ export const ModalWindow = ({showModal, setShowModal, parent}) => {
 
 function createFolderHandler(parentId, value) {
   store.dispatch(createFolder({
-    id: store.getState().todos.length + 1,
+    id: store.getState().folders.length + 1,
     name: value,
     parentId: parentId
   }));

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const todosSlice = createSlice({
-  name: 'todos',
-  initialState: (sessionStorage['redux-store-folders']) ? JSON.parse(sessionStorage['redux-store-folders']).todos : [{id: 1, name: "rootDir", parentId: 0}],
+const foldersSlice = createSlice({
+  name: 'folders',
+  initialState: (sessionStorage['redux-store-folders']) ? JSON.parse(sessionStorage['redux-store-folders']).folders : [{id: 1, name: "rootDir", parentId: null}],
   reducers: {
     createFolder(state, action) {
       state.push({
@@ -10,9 +10,12 @@ const todosSlice = createSlice({
         name: action.payload.name,
         parentId: action.payload.parentId
       })
+    },
+    deleteFolder(state, action) {
+      return state.filter(product => product.id !== action.payload.id);
     }
   }
 })
 
-export const { createFolder } = todosSlice.actions
-export default todosSlice.reducer
+export const { createFolder, deleteFolder } = foldersSlice.actions
+export default foldersSlice.reducer
