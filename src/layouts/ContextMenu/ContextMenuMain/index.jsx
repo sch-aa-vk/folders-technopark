@@ -26,8 +26,8 @@ export const ContextMenuMain = ({pageX, pageY, isFolder}) => {
               dispatch(deleteFolder(JSON.parse(isFolder)));
             }}>Delete</li>
             <li onClick={() => {
-              document.querySelector('.sidebar__wrapper').querySelector('.transparent').dataset.folder = isFolder;
-              document.querySelector('.sidebar__wrapper').querySelector('.transparent').click();
+              // document.querySelector('.sidebar__wrapper').querySelector('.transparent').dataset.folder = isFolder;
+              // document.querySelector('.sidebar__wrapper').querySelector('.transparent').click();
             }}>Rename</li>
           </>
         }

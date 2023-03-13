@@ -1,7 +1,10 @@
 .body {
+  background: var(--background-color);
+
   & > h2 {
     padding: 2rem;
     padding-bottom: 0;
     font-size: 2rem;
+    color: var(--text-color);
   }
 }
